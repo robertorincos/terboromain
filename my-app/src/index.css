@@ -14,7 +14,13 @@ body {
   font-variation-settings:
     "wdth" 75,
     "YTLC" 500;
-  background-color: #1a1a1a;
+  background: linear-gradient(to bottom, 
+    #001a33 0%,
+    #002447 25%,
+    #003d5c 50%,
+    #004d6b 75%,
+    #005980 100%
+  );
   color: white;
   height: 100vh;
   display: flex;
