@@ -14,17 +14,64 @@ body {
   font-variation-settings:
     "wdth" 75,
     "YTLC" 500;
-  background: linear-gradient(to bottom, 
-    #001a33 0%,
-    #002447 25%,
-    #003d5c 50%,
-    #004d6b 75%,
-    #005980 100%
-  );
+  background: linear-gradient(0deg, #0308be 0%, #0308be 70%, rgba(0, 208, 255, 1) 100%);
   color: white;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  position: relative;
+}
+
+body::before,
+body::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: transparent;
+  z-index: 0;
+}
+
+body::before {
+  background: 
+    radial-gradient(ellipse at center, rgba(0, 100, 200, 0.3) 0%, transparent 70%),
+    linear-gradient(to bottom, transparent, rgba(0, 50, 150, 0.2));
+  animation: wave 8s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+body::after {
+  background: 
+    radial-gradient(ellipse at center, rgba(0, 150, 255, 0.2) 0%, transparent 70%);
+  animation: wave 6s ease-in-out infinite reverse;
+  transform-origin: bottom center;
+  opacity: 0.7;
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: translateY(0) scaleY(1);
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  }
+  25% {
+    transform: translateY(-20px) scaleY(1.1);
+    border-radius: 45% 55% 0 0 / 90% 110% 0 0;
+  }
+  50% {
+    transform: translateY(-30px) scaleY(1.15);
+    border-radius: 55% 45% 0 0 / 110% 90% 0 0;
+  }
+  75% {
+    transform: translateY(-20px) scaleY(1.1);
+    border-radius: 50% 50% 0 0 / 95% 105% 0 0;
+  }
+}
+
+.container {
+  position: relative;
+  z-index: 1;
 }
